@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	Пикник-парк "Наше место"
+{% endblock %}
+
+{% block scripts %}
+	<script type="text/javascript" src="https://33088.cloff.ru/widget/hb2.4261.f56c22ef9397548711f382ef804b07b3.js"></script>
+	<script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
+{% endblock %}
+
+{% block content %}
+	<link rel="stylesheet" href="{% static 'css/cover.css' %}">
+	<div class="p-5 cover">
+		<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
+		<div class="text-center text-white cover-inner-container">
+			<h3>Добро пожаловать к нам в парк!</h3>
+			<p>В нашем красивом лесном парке есть всё для Вашего отдыха: видовые мангальные полянки, уютные беседки и мостки для рыбалки.</p>
+			<button class="btn btn-primary" onclick="clW_f56c22ef9397548711f382ef804b07b3.openform();">Забронировать</button>
+		</div>
+	</div>
+	<div class="p-5 cover">
+		<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
+		<div class="text-center text-white cover-inner-container">
+			<div class="row">
+				<div class="col-md-6 mb-3 text-left">
+					<a class="btn btn-primary mb-3" href="//yandex.ru/maps/-/CCUFIDUvXD">Как проехать</a>
+					<p>100 километров от МКАД по трассе М-4, Городской округ Кашира, вблизи посёлка Большое Руново.</p>
+				</div>
+				<div class="col-md-6 mb-3 text-right">
+					<p>15 гектаров лесопарковой зоны и пруд размером более 1 гектара ждут Вас! С 1 мая 2022 года Пикник-парк «Наше место» открылся для ежедневного посещения и будет день ото дня развиваться и совершенствоваться в надежде стать «Вашим любимым местом» для проведения активного досуга и приятного отдыха.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="p-5 cover">
+		<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
+		<div class="text-center text-white cover-inner-container">
+			<h3 class="text-center mb-3">Выбирайте как Вы хотите провести этот замечательный день:</h3>
+			<p class="text-left mb-3"><i><b>⁃ в одиночестве и умиротворении?</b></i></p>
+			<div class="row">
+				<div class="col-md-6 mb-3 text-left">
+					<p>Возьмите на прокат снасти и половите рыбу с благоустроенного рыбацкого мостка. Карп? Щука? Осётр? Кто окажется в Вашем садке сегодня? Сварите уху или закоптите? В «Нашем месте» есть всё что для этого нужно!</p>
+				</div>
+				<div class="col-md-6 mb-3 text-right">
+					<p>Прогуляйтесь по лесу и по берегу пруда, подремлите в гамаке, попейте чая на природе. Пригласите близкого человека погулять по «Нашему месту», полюбуйтесь природой, подышите свежим воздухом. А ещё у нас нет клещей и комаров, пустячок, а всё же приятно!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="p-5 cover">
+		<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
+		<div class="text-center text-white cover-inner-container">
+			<p class="text-left mb-3"><i><b>⁃ выбраться на природу семьёй или дружной компанией?</b></i></p>
+			<div class="row">
+				<div class="col-md-6 mb-3 text-left">
+					<p>Арендуйте два рыбацких мостка и устройте соревнование «кто быстрее поймает» или «у кого крупнее карп». Поставьте палатку и пожарьте хлеб или зефирки на костре. Пикник-парк «Наше место» создан специально для этих замечательных занятий!</p>
+				</div>
+				<div class="col-md-6 mb-3 text-right">
+					<p>Расположитесь в беседке или на мангальной полянке. На удобном мангале приготовьте отличные блюда. Проведите вечер у костра. В нашем пикник-парке есть настольные игры, а играть в мафию на природе приятнее чем в душной квартире!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="p-5 cover">
+		<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
+		<div class="text-center text-white cover-inner-container">
+			<p class="text-left mb-3"><i><b>⁃ отпраздновать свадьбу? День рождения? Корпоратив? Тимбилдинг? Устроить встречу выпускников? Отметить последнюю пятницу на неделе?</b></i></p>
+			<div class="row">
+				<div class="col-md-6 mb-3 text-left">
+					<p>Закажите аниматора для детского праздника, поиграйте в волейбол, устройте пейнтбольный бой, пройдите лесной квест. Любые виды активных развлечений на свежем воздухе доступны для Вас по предварительной договорённости.</p>
+				</div>
+				<div class="col-md-6 mb-3 text-right">
+					<p>В нашем пикник-парке есть мангальные полянки и разные беседки, рассчитанные на компании от 2-х до 40 человек. Мангалы, казаны, садж, шампуры, решетки, вертел — всё для Вашего кулинарного триумфа!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="p-5 cover">
+		<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
+		<div class="text-center text-white cover-inner-container">
+			<div class="row g-3">
+				<div class="col-md-6 mb-3 text-left">
+					<p>Бронь и оплату можно удобно и быстро произвести здесь:</p>
+					<button class="btn btn-primary" onclick="clW_f56c22ef9397548711f382ef804b07b3.openform();">Забронировать</button>
+				</div>
+				<div class="col-md-6 mb-3 text-right">
+					<p>Уточнить детали и договориться о посещении Пикник-парка «Наше место» Вы можете по телефону:</p>
+					<h3><a href="tel:+79295550066">+79295550066</a></h3>
+					<div style="float: right;" id="vk_groups"></div>
+					<script type="text/javascript">
+						VK.Widgets.Group("vk_groups", {mode: 3, height: 400, color1: "FFFFFF", color2: "000000", color3: "5181B8"}, 212327764);
+					</script>
+				</div>
+				<!-- <div class="col-md-4 mb-3 text-right">
+					<form action="">
+						<div class="mb-3">
+							<label for="name" class="form-label"><b>Имя</b> (обязательно)</label>
+							<input type="name" class="form-control" id="name">
+						</div>
+						<div class="mb-3">
+							<label for="tel" class="form-label"><b>Телефон</b> (обязательно)</label>
+							<input type="tel" class="form-control" id="tel">
+						</div>
+						<button type="submit" class="btn btn-primary">Перезвоните мне</button>
+					</form>
+				</div> -->
+			</div>
+		</div>
+	</div>
+{% endblock %}
