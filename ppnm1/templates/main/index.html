@@ -16,73 +16,75 @@
 {% endblock %}
 
 {% block content %}
-	<div class="p-5 cover">
-		<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
-		<div class="text-center text-white cover-inner-container">
-			<div class="row justify-content-center">
-				<div class="col-4">
-					<h3>Добро пожаловать<br>к нам в парк!</h3>
-					<p class="text-hyphens">В нашем красивом лесном парке есть всё для Вашего отдыха: видовые мангальные полянки, уютные беседки и мостки для рыбалки.</p>
-					<button class="btn btn-success" onclick="clW_f56c22ef9397548711f382ef804b07b3.openform();">Забронировать</button>
+	<main>
+		<div class="cover">
+			<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
+			<div class="cover-inner-container">
+				<div class="row justify-content-center">
+					<div class="col-4 text-center">
+						<h3>Добро пожаловать<br>к нам в парк!</h3>
+						<p class="text-hyphens">В нашем красивом лесном парке есть всё для Вашего отдыха: видовые мангальные полянки, уютные беседки и мостки для рыбалки.</p>
+						<button class="btn btn-success" onclick="clW_f56c22ef9397548711f382ef804b07b3.openform();">Забронировать</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="p-5 cover">
-		<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
-		<div class="text-center text-white cover-inner-container">
-			<div class="row justify-content-center">
-				<div class="col-4 text-left">
-					<p>100 километров от МКАД по трассе М-4, Городской округ Кашира, вблизи посёлка Большое Руново.</p>
-					<a href="https://yandex.ru/maps/-/CCUFQCV6lB" target="_blank"><img src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Ad5798a4288d27379d225efe840dc2a20b684928a580b75360f714a57e53a50a2&amp;width=500&amp;height=400&amp;lang=ru_RU" alt="" style="border: 0; width: 100%; border-radius:.25rem;" /></a>
-				</div>
-				<div class="col-4 text-right">
-					<p>15 гектаров лесопарковой зоны и пруд размером более 1 гектара ждут Вас! С 1 мая 2022 года Пикник-парк «Наше место» открылся для ежедневного посещения и будет день ото дня развиваться и совершенствоваться в надежде стать «Вашим любимым местом» для проведения активного досуга и приятного отдыха.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="p-5 cover">
-		<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
-		<div class="text-center cover-inner-container">
-			<h3>Выбирайте как Вы хотите провести этот замечательный день:</h3>
-			<p class="lead col-5 mb-3 text-left">⁃ в одиночестве и умиротворении?</p>
-			<div class="row justify-content-center">
-				<div class="col-4 text-left">
-					<p>Возьмите на прокат снасти и половите рыбу с благоустроенного рыбацкого мостка. Карп? Щука? Осётр? Кто окажется в Вашем садке сегодня? Сварите уху или закоптите? В «Нашем месте» есть всё что для этого нужно!</p>
-				</div>
-				<div class="col-4 text-right">
-					<p>Прогуляйтесь по лесу и по берегу пруда, подремлите в гамаке, попейте чая на природе. Пригласите близкого человека погулять по «Нашему месту», полюбуйтесь природой, подышите свежим воздухом. А ещё у нас нет клещей и комаров, пустячок, а всё же приятно!</p>
+		<div class="cover">
+			<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
+			<div class="text-center cover-inner-container">
+				<div class="row justify-content-center">
+					<div class="col-4 text-left">
+						<p>100 километров от МКАД по трассе М-4, Городской округ Кашира, вблизи посёлка Большое Руново.</p>
+						<a href="https://yandex.ru/maps/-/CCUFQCV6lB" target="_blank"><img src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Ad5798a4288d27379d225efe840dc2a20b684928a580b75360f714a57e53a50a2&amp;width=500&amp;height=400&amp;lang=ru_RU" alt="" style="border: 0; width: 100%; border-radius:.25rem;" /></a>
+					</div>
+					<div class="col-4 text-right">
+						<p>15 гектаров лесопарковой зоны и пруд размером более 1 гектара ждут Вас! С 1 мая 2022 года Пикник-парк «Наше место» открылся для ежедневного посещения и будет день ото дня развиваться и совершенствоваться в надежде стать «Вашим любимым местом» для проведения активного досуга и приятного отдыха.</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="p-5 cover">
-		<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
-		<div class="cover-inner-container">
-			<p class="lead col-5 text-left mb-3 text-left">⁃ выбраться на природу семьёй или дружной компанией?</p>
-			<div class="row justify-content-center">
-				<div class="col-4 text-left">
-					<p>Арендуйте два рыбацких мостка и устройте соревнование «кто быстрее поймает» или «у кого крупнее карп». Поставьте палатку и пожарьте хлеб или зефирки на костре. Пикник-парк «Наше место» создан специально для этих замечательных занятий!</p>
-				</div>
-				<div class="col-4 text-right">
-					<p>Расположитесь в беседке или на мангальной полянке. На удобном мангале приготовьте отличные блюда. Проведите вечер у костра. В нашем пикник-парке есть настольные игры, а играть в мафию на природе приятнее чем в душной квартире!</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="p-5 cover">
-		<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
-		<div class="cover-inner-container">
-			<p class="lead col-5 mb-3 text-left">⁃ отпраздновать свадьбу? День рождения? Корпоратив? Тимбилдинг? Устроить встречу выпускников? Отметить последнюю пятницу на неделе?</p>
-			<div class="row justify-content-center">
-				<div class="col-4 text-left">
-					<p>Закажите аниматора для детского праздника, поиграйте в волейбол, устройте пейнтбольный бой, пройдите лесной квест. Любые виды активных развлечений на свежем воздухе доступны для Вас по предварительной договорённости.</p>
-				</div>
-				<div class="col-4 text-right">
-					<p>В нашем пикник-парке есть мангальные полянки и разные беседки, рассчитанные на компании от 2-х до 40 человек. Мангалы, казаны, садж, шампуры, решетки, вертел — всё для Вашего кулинарного триумфа!</p>
+		<div class="cover">
+			<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
+			<div class="text-center cover-inner-container">
+				<h3>Выбирайте как Вы хотите провести этот замечательный день:</h3>
+				<p class="lead col-5 mb-3 text-left">⁃ в одиночестве и умиротворении?</p>
+				<div class="row justify-content-center">
+					<div class="col-4 text-left">
+						<p>Возьмите на прокат снасти и половите рыбу с благоустроенного рыбацкого мостка. Карп? Щука? Осётр? Кто окажется в Вашем садке сегодня? Сварите уху или закоптите? В «Нашем месте» есть всё что для этого нужно!</p>
+					</div>
+					<div class="col-4 text-right">
+						<p>Прогуляйтесь по лесу и по берегу пруда, подремите в гамаке, попейте чая на природе. Пригласите близкого человека погулять по «Нашему месту», полюбуйтесь природой, подышите свежим воздухом. А ещё у нас нет клещей и комаров, пустячок, а всё же приятно!</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+		<div class="cover">
+			<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
+			<div class="cover-inner-container">
+				<p class="lead col-5 text-left mb-3 text-left">⁃ выбраться на природу семьёй или дружной компанией?</p>
+				<div class="row justify-content-center">
+					<div class="col-4 text-left">
+						<p>Арендуйте два рыбацких мостка и устройте соревнование «кто быстрее поймает» или «у кого крупнее карп». Поставьте палатку и пожарьте хлеб или зефирки на костре. Пикник-парк «Наше место» создан специально для этих замечательных занятий!</p>
+					</div>
+					<div class="col-4 text-right">
+						<p>Расположитесь в беседке или на мангальной полянке. На удобном мангале приготовьте отличные блюда. Проведите вечер у костра. В нашем пикник-парке есть настольные игры, а играть в мафию на природе приятнее чем в душной квартире!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cover">
+			<img src="{% static 'img/img1.jpg' %}" class="cover-image-background">
+			<div class="cover-inner-container">
+				<p class="lead col-5 mb-3 text-left">⁃ отпраздновать свадьбу? День рождения? Корпоратив? Тимбилдинг? Устроить встречу выпускников? Отметить последнюю пятницу на неделе?</p>
+				<div class="row justify-content-center">
+					<div class="col-4 text-left">
+						<p>Закажите аниматора для детского праздника, поиграйте в волейбол, устройте пейнтбольный бой, пройдите лесной квест. Любые виды активных развлечений на свежем воздухе доступны для Вас по предварительной договорённости.</p>
+					</div>
+					<div class="col-4 text-right">
+						<p>В нашем пикник-парке есть мангальные полянки и разные беседки, рассчитанные на компании от 2-х до 40 человек. Мангалы, казаны, садж, шампуры, решетки, вертел — всё для Вашего кулинарного триумфа!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
 {% endblock %}

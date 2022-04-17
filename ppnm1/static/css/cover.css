@@ -1,18 +1,19 @@
 .cover {
-	align-items: center;
-	background-size: cover;
-	display: flex;
+	background-size: contain;
 	justify-content: center;
+	display: flex;
 	position: relative;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .cover-image-background {
-	position: absolute;
 	object-fit: cover;
+	position: absolute;
 	width: 100%;
 	height: 100%;
 	z-index: 0;
-	filter: brightness(50%)
+	filter: brightness(70%)
 }
 
 .cover-inner-container {
