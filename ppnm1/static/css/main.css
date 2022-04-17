@@ -1,0 +1,19 @@
+body {
+	background-color:#28a745;
+	color: white;
+	min-width: 600px;
+}
+
+footer {
+	padding-left: 3rem;
+	padding-right: 3rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+p {
+	hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	-ms-hyphenate-limit-chars: 6 3 2;
+}
