@@ -1,6 +1,7 @@
 body {
 	background-color:#28a745;
 	color: white;
+	min-width: 300px;
 }
 
 footer {
@@ -8,6 +9,12 @@ footer {
 	padding-right: 3rem;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
+	margin: auto;
+}
+
+.f-block {
+	display: inline-block;
+	max-width: 33%;
 }
 
 p {
@@ -15,4 +22,56 @@ p {
 	-moz-hyphens: auto;
 	-webkit-hyphens: auto;
 	-ms-hyphenate-limit-chars: 6 3 2;
+}
+
+.map {
+	border: 0;
+	margin: auto;
+	width: 50%;
+	min-width: 260px;
+	border-radius: .25rem;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+	max-width: 630px;
+}
+
+h3 {
+	font-size: 40px;
+}
+
+p {
+	font-size: 20px;
+}
+
+@media screen and (max-width: 700px) {
+
+	h1, h2, h3, h4, h5, h6, p, a {
+		max-width: 390px;
+	}
+
+	h3 {
+		font-size: 40px;
+	}
+	
+	p {
+		font-size: 20px;
+	}
+
+}
+
+@media screen and (max-width: 420px) {
+
+	h1, h2, h3, h4, h5, h6, p, a {
+		max-width: 270px;
+	}
+
+	h3 {
+		font-size: 28px;
+	}
+
+	p {
+		font-size: 16px;
+	}
+
 }
