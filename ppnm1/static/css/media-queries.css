@@ -1,0 +1,51 @@
+h1, h2, h3, h4, h5, h6, p, a {
+	max-width: 630px;
+}
+
+h3 {
+	font-size: 40px;
+}
+
+p {
+	font-size: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+
+	h1, h2, h3, h4, h5, h6, p, a {
+		max-width: 390px;
+	}
+
+	h3 {
+		font-size: 40px;
+	}
+	
+	p {
+		font-size: 20px;
+	}
+
+	#vk_community_messages{
+        display: none!important;
+    }
+
+}
+
+@media only screen and (max-width: 420px) {
+
+	h1, h2, h3, h4, h5, h6, p, a {
+		max-width: 270px;
+	}
+
+	h3 {
+		font-size: 28px;
+	}
+
+	p {
+		font-size: 16px;
+	}
+
+	#vk_community_messages{
+        display: none!important;
+    }
+
+}
