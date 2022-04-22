@@ -1,5 +1,5 @@
 body {
-    background-color:#28a745;
+    background-color: #013220;
     color: white;
     min-width: 300px;
 }
@@ -30,4 +30,27 @@ p {
     width: 50%;
     min-width: 260px;
     border-radius: .25rem;
+}
+
+.gold {
+    /* text-transform: uppercase; */
+    color: transparent;
+    /* font-weight: bold; */
+    background-image: linear-gradient(to right, #f6e27a 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #f6e27a 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.main-color {
+    background-color: #013220;
+}
+
+.background-tile-1 {
+    background-image: url('../img/tile2.jpg');
+    background-repeat: repeat;
+}
+
+.background-tile-2 {
+    background-image: url('../img/tile2.jpg');
+    background-repeat: repeat;
 }
