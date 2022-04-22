@@ -24,14 +24,14 @@
                 <div class="justify-content-center text-center">
                     <h3 class="gold">Добро пожаловать к нам в парк!</h3>
                     <p class="text-hyphens">В нашем красивом лесном парке есть всё для Вашего отдыха: видовые мангальные полянки, уютные беседки и мостки для рыбалки.</p>
-                    <button class="btn text-white main-color" onclick="clW_f56c22ef9397548711f382ef804b07b3.openform();">
+                    <a class="btn text-white main-color" href="#booking">
                         <span class="gold">Забронировать</span>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
         <div class="cover">
-            <img src="{% static 'img/img1.jpg' %}" class="cover-image-background filter-dark">
+            <!-- <img src="{% static 'img/img1.jpg' %}" class="cover-image-background filter-dark"> -->
             <div class="cover-inner-container">
                 <div class="justify-content-center text-center">
                     <p><a href="https://yandex.ru/maps/-/CCUFQCV6lB" target="_blank">
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="cover">
-            <img src="{% static 'img/img1.jpg' %}" class="cover-image-background filter-dark">
+            <!-- <img src="{% static 'img/img1.jpg' %}" class="cover-image-background filter-dark"> -->
             <div class="cover-inner-container">
                 <div class="justify-content-center text-center">
                     <h3 class="gold">Выбирайте как Вы хотите провести этот замечательный день:</h3>
@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="cover">
-            <img src="{% static 'img/img1.jpg' %}" class="cover-image-background filter-dark">
+            <!-- <img src="{% static 'img/img1.jpg' %}" class="cover-image-background filter-dark"> -->
             <div class="cover-inner-container">
                 <div class="justify-content-center text-center">
                     <p class="lead text-left">⁃ выбраться на природу семьёй или дружной компанией?</p>
@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="cover">
-            <img src="{% static 'img/img1.jpg' %}" class="cover-image-background filter-dark">
+            <!-- <img src="{% static 'img/img1.jpg' %}" class="cover-image-background filter-dark"> -->
             <div class="cover-inner-container">
                 <div class="justify-content-center text-center">
                     <p class="lead text-left">⁃ отпраздновать свадьбу? День рождения? Корпоратив? Тимбилдинг? Устроить встречу выпускников? Отметить последнюю пятницу на неделе?</p>
@@ -73,14 +73,15 @@
                 </div>
             </div>
         </div>
-        <div class="cover">
-            <img src="{% static 'img/img1.jpg' %}" class="cover-image-background filter-dark">
+        <div class="cover" id="booking">
+            <!-- <img src="{% static 'img/img1.jpg' %}" class="cover-image-background filter-dark"> -->
             <div class="cover-inner-container">
                 <div class="justify-content-center text-center">
-                    <p>Бронь и оплату можно удобно и быстро произвести здесь:</p>
-                    <button class="btn text-white main-color" onclick="clW_f56c22ef9397548711f382ef804b07b3.openform();">
-                        <span class="gold">Забронировать</span>
-                    </button>
+                    <p class="mb-3" style="margin: auto;">Бронь и оплату можно удобно и быстро произвести здесь:</p>
+                    <div>
+                        <div id="CLOFF_HOTEL_WIDGET" style="width:100%;"></div>
+                        <script>jcClWidgetBookingf56c22ef9397548711f382ef804b07b3.openform("CLOFF_HOTEL_WIDGET");</script>
+                    </div>
                 </div>
             </div>
         </div>
