@@ -1,33 +1,33 @@
 body {
-	background-color:#28a745;
-	color: white;
-	min-width: 300px;
+    background-color:#28a745;
+    color: white;
+    min-width: 300px;
 }
 
 footer {
-	padding-left: 3rem;
-	padding-right: 3rem;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	margin: auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: auto;
 }
 
 .f-block {
-	display: inline-block;
-	max-width: 33%;
+    display: inline-block;
+    max-width: 33%;
 }
 
 p {
-	hyphens: auto;
-	-moz-hyphens: auto;
-	-webkit-hyphens: auto;
-	-ms-hyphenate-limit-chars: 6 3 2;
+    hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphenate-limit-chars: 6 3 2;
 }
 
 .map {
-	border: 0;
-	margin: auto;
-	width: 50%;
-	min-width: 260px;
-	border-radius: .25rem;
+    border: 0;
+    margin: auto;
+    width: 50%;
+    min-width: 260px;
+    border-radius: .25rem;
 }

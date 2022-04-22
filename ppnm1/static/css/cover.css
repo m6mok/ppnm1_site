@@ -1,33 +1,27 @@
 .cover {
-	background-size: contain;
-	justify-content: center;
-	object-fit: center;
-	display: flex;
-	position: relative;
-	padding-left: 1rem;
-	padding-right: 1rem;
-	min-height: 100vh;
+    background-size: contain;
+    justify-content: center;
+    object-fit: center;
+    display: flex;
+    position: relative;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-height: 100vh;
 }
 
 .cover-image-background {
-	object-fit: cover;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	z-index: 0;
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
 
 .filter-dark {
-	filter: brightness(70%);
-}
-
-.filter-blur {
-	filter: blur(2)
+    filter: brightness(70%);
 }
 
 .cover-inner-container {
-	z-index: 1;
-	margin-top: 20vh;
-	margin-bottom: 20vh;
-	margin: auto;
+    z-index: 1;
+    margin: auto;
 }
