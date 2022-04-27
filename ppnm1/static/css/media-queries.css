@@ -10,6 +10,14 @@ p {
     font-size: 20px;
 }
 
+#vk_groups {
+    display: block;
+}
+
+#vk_groups_mobile {
+    display: block;
+}
+
 @media only screen and (max-width: 768px) {
 
     h1, h2, h3, h4, h5, h6, p, a {
@@ -22,6 +30,10 @@ p {
 
     p {
         font-size: 20px;
+    }
+
+    #vk_groups {
+        display: none;
     }
 
 }
