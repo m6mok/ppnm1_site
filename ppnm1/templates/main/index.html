@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{% static 'css/cover.css' %}?ver={{ css_version }}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/media-queries.css' %}?ver={{ css_version }}" type="text/css">
 
-    {% comment %} <script type="text/javascript" src="https://33088.cloff.ru/widget/hb2.4261.f56c22ef9397548711f382ef804b07b3.js"></script> {% endcomment %}
     {% comment %} <script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script> {% endcomment %}
 {% endblock %}
 
@@ -20,14 +19,14 @@
             onlyWidgets: true
         });
     </script> {% endcomment %}
-    <main class="background-tile-2">
+    <main class="background-tile-2 text-white">
         <div class="cover">
             <img src="{% static 'img/img3.jpg' %}" class="cover-image-background filter-dark">
             <div class="cover-inner-container">
                 <div class="justify-content-center text-center">
                     <h3 class="gold">Добро пожаловать<br>к нам в пикник-парк!</h3>
-                    <p class="text-hyphens">В нашем красивом лесном парке есть всё для Вашего отдыха: видовые мангальные полянки, уютные беседки и мостки для рыбалки.</p>
-                    <a class="btn text-white main-color" href="#booking">
+                    <p>В нашем красивом лесном парке есть всё для Вашего отдыха: видовые мангальные полянки, уютные беседки и мостки для рыбалки.</p>
+                    <a class="btn main-color" href="#booking">
                         <span class="gold">Забронировать</span>
                     </a>
                 </div>
@@ -51,7 +50,7 @@
             <img src="{% static 'img/img2.jpg' %}" loading="lazy" class="cover-image-background filter-dark">
             <div class="cover-inner-container">
                 <div class="justify-content-center text-center">
-                    <h3 class="gold">Выбирайте как Вы хотите провести этот замечательный день:</h3>
+                    <h3 class="gold">Выбирайте<br>как Вы хотите провести<br>этот замечательный день:</h3>
                     <p class="lead text-start">⁃ в одиночестве и умиротворении?</p>
                     <p>Возьмите на прокат снасти и половите рыбу с благоустроенного рыбацкого мостка. Карп? Щука? Осётр? Кто окажется в Вашем садке сегодня? Сварите уху или закоптите? В «Нашем месте» есть всё, что для этого нужно!</p>
                     <p>Прогуляйтесь по лесу и по берегу пруда, подремлите в гамаке, попейте чая на природе. Пригласите близкого человека погулять по «Нашему месту», полюбуйтесь природой, подышите свежим воздухом. А ещё у нас нет клещей и комаров, пустячок, а всё же приятно!</p>
@@ -77,23 +76,39 @@
                 </div>
             </div>
         </div>
-        {% comment %} <div class="cover" id="booking">
-            <img src="{% static 'img/img1.jpg' %}" loading="lazy" class="cover-image-background filter-dark">
+        <div class="cover" id="booking">
+            {% comment %} <img src="{% static 'img/img1.jpg' %}" loading="lazy" class="cover-image-background filter-dark"> {% endcomment %}
             <div class="cover-inner-container">
                 <div class="justify-content-center text-center">
                     <p class="mb-3" style="margin: auto;">Бронь и оплату можно удобно и быстро произвести здесь:</p>
-                    <div class="card text-dark text-start bg-warning mb-3">
+                    {% comment %} <div class="card text-dark text-start bg-warning mb-3">
                         <div class="card-header">Внимание</div>
                         <div class="card-body">
                           <p class="card-text">На данный момент функционал виджета работает некорректно. Приносим свои извинения.</p>
                         </div>
-                    </div>
-                    <div>
-                        <div id="CLOFF_HOTEL_WIDGET" style="width:100%;"></div>
+                    </div> {% endcomment %}
+                    <div class="col">
+                        <ul>
+                            <a class="btn main-color" onclick="clW_e9268051e265c364beb096d90cebd311.openform();">
+                                <span class="gold">Забронировать беседку</span>
+                            </a>
+                        </ul>
+                        <ul>
+                            <a class="btn main-color" onclick="clW_051396a0462c9075055534dda5d1a675.openform();">
+                                <span class="gold">Забронировать рыбацкий мостик</span>
+                            </a>
+                        </ul>
+                        <ul>
+                            <a class="btn main-color" onclick="clW_b10b4d1164b51408b3501d96909f4a1c.openform();">
+                                <span class="gold">Забронировать мангальную полянку</span>
+                            </a>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <script>jcClWidgetBookingf56c22ef9397548711f382ef804b07b3.openform("CLOFF_HOTEL_WIDGET");</script>
-        </div> {% endcomment %}
+            <script type="text/javascript" src="https://33088.cloff.ru/widget/hbh.4284.e9268051e265c364beb096d90cebd311.js"></script>
+            <script type="text/javascript" src="https://33088.cloff.ru/widget/hbh.4285.051396a0462c9075055534dda5d1a675.js"></script>
+            <script type="text/javascript" src="https://33088.cloff.ru/widget/hbh.4282.b10b4d1164b51408b3501d96909f4a1c.js"></script> 
+        </div>
     </main>
 {% endblock %}
