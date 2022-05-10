@@ -1,0 +1,15 @@
+{% extends 'chess_base.html' %}
+
+{% block title %}
+    Создание объекта
+{% endblock %}
+
+{% block header_brand %}
+    Создание объекта
+{% endblock %}
+
+{% block content %}
+    {% with 'chess:create_object' as link and 'includes/form_body.html' as form_body %}
+        {% include 'includes/create_card.html' %}
+    {% endwith %}
+{% endblock %}

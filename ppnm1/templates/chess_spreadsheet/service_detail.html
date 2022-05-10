@@ -1,0 +1,66 @@
+{% extends 'chess_base.html' %}
+
+{% block title %}
+    Услуга {{ service.self }}
+{% endblock %}
+
+{% block header_brand %}
+    Услуга
+{% endblock %}
+
+{% block content %}
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="card-body">
+                <div class="col">
+                    <div class="col-6">
+                        {% csrf_token %}
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>Название</th>
+                                <td>
+                                    <input class="form-control" type="text" id="title" value="{{ service.self.title }}" onchange="set_service()">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Цена</th>
+                                <td>
+                                    <input class="form-control" type="number" id="price" value="{{ service.self.price }}" onchange="set_service()">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Описание</th>
+                                <td>
+                                    <input class="form-control" type="text" id="description" value="{{ service.self.description }}" onchange="set_service()">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col">
+                    {% include 'includes/bookings_table.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function set_service() {
+            $.ajax({
+                url: '{% url 'chess:set_service' %}',
+                data: {
+                    'title': $('#title').val(),
+                    'price': $('#price').val(),
+                    'description': $('#description').val(),
+                    'service_id': {{ service.self.pk }}
+                },
+                dataType: 'json'
+            });
+            location.reload();
+        }
+        $("input").focus(function(){
+            if(this.value == this.defaultValue){
+                this.select();
+            }
+        });
+    </script>
+{% endblock %}

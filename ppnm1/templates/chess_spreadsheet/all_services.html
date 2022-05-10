@@ -1,0 +1,45 @@
+{% extends 'chess_base.html' %}
+{% load user_filters %}
+
+{% block title %}
+    Все услуги
+{% endblock %}
+
+{% block header_brand %}
+    Услуги
+{% endblock %}
+
+{% block header_create %}
+    <a class="btn btn-primary" href="{% url 'chess:create_service' %}">Создать</a>
+{% endblock%}
+
+{% block content %}
+    {% if services %}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="text-center">
+                <tr>
+                    <th></th>
+                    <th scope="col">Название</th>
+                    <th scope="col">Цена</th>
+                    <th scope="col">Описание</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle text-center">
+                {% for service in services %}
+                    <tr>
+                        <td>
+                            <a class="nav-link" href="{% url 'chess:service_detail' service.pk %}">#</a>
+                        </td>
+                        <td>{{ service.title }}</td>
+                        <td>{{ service.price|rus_money }}</td>
+                        <td>{% firstof service.description|truncatechars:15|description_add '-пусто-'%}</td>
+                    <tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <h3 class="lead">Услуг нет</h3>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'chess_base.html' %}
+
+{% block title %}
+    Клиент {{ client.self }}
+{% endblock %}
+
+{% block header_brand %}
+    Клиент
+{% endblock %}
+
+{% block content %}
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="card-body">
+                <div class="col">
+                    <div class="col-6">
+                        {% csrf_token %}
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>Имя</th>
+                                <td>
+                                    <input class="form-control" type="text" id="name" value="{{ client.self.name }}" onchange="set_client()">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Телефон</th>
+                                <td>
+                                    <input class="form-control" type="tel" id="phone_number" value="{{ client.self.phone_number }}">
+                                    <a style="text-decoration: none;" href="tel:{{ client.self.phone_number }}" onchange="set_client()">Позвонить</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>
+                                    <input class="form-control" type="email" id="email" value="{% firstof client.self.email '-пусто-' %}" onchange="set_client()">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col">
+                    {% include 'includes/bookings_table.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function set_client() {
+            $.ajax({
+                url: '{% url 'chess:set_client' %}',
+                data: {
+                    'name': $('#name').val(),
+                    'phone_number': $('#phone_number').val(),
+                    'email': $('#email').val(),
+                    'client_id': {{ client.self.pk }}
+                },
+                dataType: 'json'
+            });
+            location.reload();
+        }
+        $("input").focus(function(){
+            if(this.value == this.defaultValue){
+                this.select();
+            }
+        });
+    </script>
+{% endblock %}

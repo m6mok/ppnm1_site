@@ -1,0 +1,21 @@
+<div class="modal fade" id="servicesModal{{ id }}" tabindex="-1" aria-labelledby="servicesModal{{ id }}Label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="servicesModal{{ id }}Label">Услуги</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav flex-column">
+                    {% for service in services %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'chess:service_detail' service.pk %}">{{ service.title }}</a></li>
+                    {% empty %}
+                        Услуг нет
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>

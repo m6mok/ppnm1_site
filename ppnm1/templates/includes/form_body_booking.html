@@ -1,0 +1,170 @@
+{% load user_filters %}
+{% csrf_token %}
+{% with form.client as field %}
+    <div class="form-group row my-3"
+    {% if field.field.required %} 
+        aria-required="true"
+    {% else %}
+        aria-required="false"
+    {% endif %}
+    >
+    <label for="{{ field.id_for_label }}">
+        {{ field.label }}
+        {% if field.field.required %}
+            <span class="required text-danger">*</span>
+        {% endif %}
+    </label>
+    <div>
+        {{ field|addclass:'form-control' }}
+        {% if field.help_text %}
+        <small id="{{ field.id_for_label }}-help" class="form-text text-muted">
+            {{ field.help_text|safe }}
+        </small>
+        {% endif %}
+    </div>
+    </div>
+{% endwith %}
+{% with form.customers_count as field %}
+    <div class="form-group row my-3"
+    {% if field.field.required %} 
+        aria-required="true"
+    {% else %}
+        aria-required="false"
+    {% endif %}
+    >
+    <label for="{{ field.id_for_label }}">
+        {{ field.label }}
+        {% if field.field.required %}
+            <span class="required text-danger">*</span>
+        {% endif %}
+    </label>
+    <div>
+        {{ field|addclass:'form-control' }}
+        {% if field.help_text %}
+        <small id="{{ field.id_for_label }}-help" class="form-text text-muted">
+            {{ field.help_text|safe }}
+        </small>
+        {% endif %}
+    </div>
+    </div>
+{% endwith %}
+{% with form.object as field %}
+    <div class="form-group row my-3"
+    {% if field.field.required %} 
+        aria-required="true"
+    {% else %}
+        aria-required="false"
+    {% endif %}
+    >
+    <label for="{{ field.id_for_label }}">
+        {{ field.label }}
+        {% if field.field.required %}
+            <span class="required text-danger">*</span>
+        {% endif %}
+    </label>
+    <div>
+        {{ field|addclass:'form-control' }}
+        {% if field.help_text %}
+        <small id="{{ field.id_for_label }}-help" class="form-text text-muted">
+            {{ field.help_text|safe }}
+        </small>
+        {% endif %}
+    </div>
+    </div>
+{% endwith %}
+{% with form.services as field %}
+    <div class="form-group row my-3"
+    {% if field.field.required %} 
+        aria-required="true"
+    {% else %}
+        aria-required="false"
+    {% endif %}
+    >
+    <label for="{{ field.id_for_label }}">
+        {{ field.label }}
+        {% if field.field.required %}
+            <span class="required text-danger">*</span>
+        {% endif %}
+    </label>
+    <div>
+        {{ field|addclass:'form-control' }}
+        {% if field.help_text %}
+        <small id="{{ field.id_for_label }}-help" class="form-text text-muted">
+            {{ field.help_text|safe }}
+        </small>
+        {% endif %}
+    </div>
+    </div>
+{% endwith %}
+{% with form.date as field %}
+    <div class="form-group row my-3"
+    {% if field.field.required %} 
+        aria-required="true"
+    {% else %}
+        aria-required="false"
+    {% endif %}
+    >
+    <label for="{{ field.id_for_label }}">
+        {{ field.label }}
+        {% if field.field.required %}
+            <span class="required text-danger">*</span>
+        {% endif %}
+    </label>
+    <div>
+        {{ field|addclass:'form-control' }}
+        {% if field.help_text %}
+        <small id="{{ field.id_for_label }}-help" class="form-text text-muted">
+            {{ field.help_text|safe }}
+        </small>
+        {% endif %}
+    </div>
+    </div>
+{% endwith %}
+{% with form.time_from as field %}
+    <div class="form-group row my-3"
+    {% if field.field.required %} 
+        aria-required="true"
+    {% else %}
+        aria-required="false"
+    {% endif %}
+    >
+    <label for="{{ field.id_for_label }}">
+        {{ field.label }}
+        {% if field.field.required %}
+            <span class="required text-danger">*</span>
+        {% endif %}
+    </label>
+    <div>
+        {{ field|addclass:'form-control' }}
+        {% if field.help_text %}
+        <small id="{{ field.id_for_label }}-help" class="form-text text-muted">
+            {{ field.help_text|safe }}
+        </small>
+        {% endif %}
+    </div>
+    </div>
+{% endwith %}
+{% with form.time_to as field %}
+    <div class="form-group row my-3"
+    {% if field.field.required %} 
+        aria-required="true"
+    {% else %}
+        aria-required="false"
+    {% endif %}
+    >
+    <label for="{{ field.id_for_label }}">
+        {{ field.label }}
+        {% if field.field.required %}
+            <span class="required text-danger">*</span>
+        {% endif %}
+    </label>
+    <div>
+        {{ field|addclass:'form-control' }}
+        {% if field.help_text %}
+        <small id="{{ field.id_for_label }}-help" class="form-text text-muted">
+            {{ field.help_text|safe }}
+        </small>
+        {% endif %}
+    </div>
+    </div>
+{% endwith %}

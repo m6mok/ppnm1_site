@@ -1,0 +1,45 @@
+{% extends 'chess_base.html' %}
+{% load user_filters %}
+
+{% block title %}
+    Все объекты
+{% endblock %}
+
+{% block header_brand %}
+    Объекты
+{% endblock %}
+
+{% block header_create %}
+    <a class="btn btn-primary" href="{% url 'chess:create_object' %}">Создать</a>
+{% endblock%}
+
+{% block content %}
+    {% if objects %}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="text-center">
+                <tr>
+                    <th></th>
+                    <th scope="col">Название</th>
+                    <th scope="col">Цена</th>
+                    <th scope="col">Описание</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle text-center">
+                {% for object in objects %}
+                    <tr>
+                        <td>
+                            <a class="nav-link" href="{% url 'chess:object_detail' object.pk %}">#</a>
+                        </td>
+                        <td>{{ object.title }}</td>
+                        <td>{{ object.price|rus_money }}</td>
+                        <td>{% firstof object.description|truncatechars:15|description_add '-пусто-'%}</td>
+                    <tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <h3 class="lead">Объектов нет</h3>
+    {% endif %}
+{% endblock %}

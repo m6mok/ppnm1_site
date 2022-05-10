@@ -1,0 +1,66 @@
+{% extends 'chess_base.html' %}
+
+{% block title %}
+    Объект {{ object.self }}
+{% endblock %}
+
+{% block header_brand %}
+    Объект
+{% endblock %}
+
+{% block content %}
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="card-body">
+                <div class="col">
+                    <div class="col-6">
+                        {% csrf_token %}
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>Название</th>
+                                <td>
+                                    <input class="form-control" type="text" id="title" value="{{ object.self.title }}" onchange="set_object()">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Цена</th>
+                                <td>
+                                    <input class="form-control" type="number" id="price" value="{{ object.self.price }}" onchange="set_object()">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Описание</th>
+                                <td>
+                                    <input class="form-control" type="text" id="description" value="{{ object.self.description }}" onchange="set_object()">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col">
+                    {% include 'includes/bookings_table.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function set_object() {
+            $.ajax({
+                url: '{% url 'chess:set_object' %}',
+                data: {
+                    'title': $('#title').val(),
+                    'price': $('#price').val(),
+                    'description': $('#description').val(),
+                    'object_id': {{ object.self.pk }}
+                },
+                dataType: 'json'
+            });
+            location.reload();
+        }
+        $("input").focus(function(){
+            if(this.value == this.defaultValue){
+                this.select();
+            }
+        });
+    </script>
+{% endblock %}

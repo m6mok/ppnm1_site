@@ -1,0 +1,44 @@
+{% extends 'chess_base.html' %}
+
+{% block title %}
+    Все клиенты
+{% endblock %}
+
+{% block header_brand %}
+    Клиенты
+{% endblock %}
+
+{% block header_create %}
+    <a class="btn btn-primary" href="{% url 'chess:create_client' %}">Создать</a>
+{% endblock%}
+
+{% block content %}
+    {% if clients %}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="text-center">
+                <tr>
+                    <th></th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Телефон</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle text-center">
+                {% for client in clients %}
+                    <tr>
+                        <td>
+                            <a class="nav-link" href="{% url 'chess:client_detail' client.pk %}">#</a>
+                        </td>
+                        <td>{{ client.name }}</td>
+                        <td><a style="text-decoration:none;" href="tel:{{ client.phone_number }}">{{ client.phone_number }}</a></td>
+                        <td>{{ client.email }}</td>
+                    <tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <h3 class="lead">Клиентов нет</h3>
+    {% endif %}
+{% endblock %}

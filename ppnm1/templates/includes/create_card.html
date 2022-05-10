@@ -1,0 +1,9 @@
+<div class="card">
+    <div class="card-body">
+        {% include 'includes/form_errors.html' %}
+        <form method="post" action="{% url link %}">
+            {% include form_body %}
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+{% extends 'chess_base.html' %}
+
+{% block title %}
+    Создание клиента
+{% endblock %}
+
+{% block header_brand %}
+    Создание клиента
+{% endblock %}
+
+{% block content %}
+    {% with 'chess:create_client' as link and 'includes/form_body.html' as form_body %}
+        {% include 'includes/create_card.html' %}
+    {% endwith %}
+{% endblock %}

@@ -1,0 +1,84 @@
+<style type="text/css">
+    td {
+        min-width: 8rem;
+    }
+</style>
+{% if bookings %}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="text-center">
+                <tr>
+                    <th></th>
+                    <th scope="col">Состояние</th>
+                    <th scope="col">Клиент</th>
+                    <th scope="col">Количество людей</th>
+                    <th scope="col">Объект</th>
+                    <th scope="col">Услуги</th>
+                    <th scope="col">Дата</th>
+                    <th scope="col">Время начала</th>
+                    <th scope="col">Время конца</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle text-center">
+                {% for booking in bookings %}
+                    <tr>
+                        <td>
+                            <a style="text-decoration:none;" href="{% url 'chess:booking_detail' booking.pk %}">#</a>
+                        </td>
+                        <td>
+                            <select onchange="set_booking_status(this, {{ booking.pk }});">
+                                {% for option in booking.STATUS_CHOICES %}
+                                    <option value="{{ option.0 }}" {% if booking.status == option.0 %} selected {% endif %}> 
+                                        {{ option.1 }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td>
+                            <a style="text-decoration:none;" href="{% url 'chess:client_detail' booking.client.pk %}"> {{ booking.client }} </a>
+                        </td>
+                        <td> {{ booking.customers_count }} </td>
+                        <td>
+                            <a style="text-decoration:none;" href="{% url 'chess:object_detail' booking.object.pk %}"> {{ booking.object }} </a>
+                        </td>
+                        {% with services=booking.services.all id=booking.pk %}
+                            <td><a style="text-decoration:none;" href="#" data-bs-toggle="modal" data-bs-target="#servicesModal{{ id }}">
+                                {{ services.count }}
+                            </a></td>
+                            {% include 'includes/services_modal.html' %}
+                        {% endwith %}
+                        <td>{{ booking.date }}</td>
+                        <td>{{ booking.time_from }}</td>
+                        <td>{{ booking.time_to }}</td>
+                    <tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <h3 class="lead">Броней нет</h3>
+{% endif %}
+<script>
+    function set_bkg(el) {
+        const bkg = {
+            '1': 'bg-info',
+            '2': 'bg-primary',
+            '3': 'bg-success',
+            '4': 'bg-secondary',
+            '5': 'bg-warning'
+        };
+        el.className = 'from-control no-border text-white badge border-0 ' + bkg[el.value];
+    }
+    function set_booking_status(el, booking_id) {
+        set_bkg(el);
+        $.ajax({
+            url: '{% url 'chess:set_booking_status' %}',
+            data: {
+                'value': el.value,
+                'booking_id': booking_id
+            },
+            dataType: 'json'
+        });
+    }
+    window.onload = $('select').each(function(){set_bkg($(this).get(0))});
+</script>

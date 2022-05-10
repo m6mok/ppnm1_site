@@ -1,0 +1,15 @@
+{% extends 'chess_base.html' %}
+
+{% block title %}
+    Создание брони
+{% endblock %}
+
+{% block header_brand %}
+    Создание брони
+{% endblock %}
+
+{% block content %}
+    {% with 'chess:create_booking' as link and 'includes/form_body.html' as form_body %}
+        {% include 'includes/create_card.html' %}
+    {% endwith %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'chess_base.html' %}
+
+{% block title %}
+    Создание услуги
+{% endblock %}
+
+{% block header_brand %}
+    Создание услуги
+{% endblock %}
+
+{% block content %}
+    {% with 'chess:create_service' as link and 'includes/form_body.html' as form_body %}
+        {% include 'includes/create_card.html' %}
+    {% endwith %}
+{% endblock %}

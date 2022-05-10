@@ -1,0 +1,99 @@
+{% extends 'chess_base.html' %}
+{% load user_filters %}
+
+{% block title %}
+    Шахматка
+{% endblock %}
+
+{% block head %}
+    <style type="text/css">
+        .table-responsive>.fixed-column {
+            position: absolute;
+            display: inline-block;
+            width: auto;
+            border-right: 1px solid #ddd;
+            background-color: #fff;
+        }
+        th {
+            height: 4rem;
+            width: 4rem;
+        }
+    </style>
+{% endblock %}
+
+{% block header_brand %}
+    Почасовая шахматка
+{% endblock %}
+
+{% block content %}
+    <div>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a class="nav-link" href="{% url 'chess:chess' date|previous_day %}"><{{ date|previous_day }}</a></li>
+            <li class="nav-item"><input class="nav-link text-end" onkeydown="return false" type="date" value="{{ date|safe }}" onchange="dateRedirect(this);"/></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'chess:chess' date|next_day %}">{{ date|next_day }}></a></li>
+        </ul>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr class="text-left col-3">
+                    <th scope="col">Объект</th>
+                    {% for hour in time %}
+                        <th>{{ hour|to_hour_format }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in objects %}
+                    <tr>
+                        <td scope="row">
+                            <a class="nav-link" href="{% url 'chess:object_detail' object.pk %}">
+                                {{ object }}
+                            </a>
+                        </td>
+                        {% for hour in time %}
+                            <td id="{{ object.pk }}_{{ hour }}"></td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function buildChess() { // Функция постройки шахматки относительно б/д
+            {% for booking in bookings %}
+                cell = document.getElementById('{{ booking.booking.object.pk }}_{{ booking.time }}');
+                cell.setAttribute('colspan', {{ booking.hours_count }});
+                for (let i = 0; i < parseInt({{ booking.hours_count }}) - 1; i++) {
+                    let id = parseInt({{ booking.time }}) + i + 1
+                    document.getElementById('{{ booking.booking.object.pk }}_' + id).remove();
+                }
+                cell.innerHTML = '<a class="col-12 text-start btn ' +
+                {% if booking.booking.status == '1' %} 'btn-info" title="Новая бронь"'
+                {% elif booking.booking.status == '2' %} 'btn-primary" title="Ожидание клиент"'
+                {% elif booking.booking.status == '3' %} 'btn-success" title="Клиент приехал"'
+                {% elif booking.booking.status == '4' %} 'btn-secondary" title="Клиент уехал"'
+                {% elif booking.booking.status == '5' %} 'btn-warning" title="Отмена"'
+                {% endif %}
+                + ' href="' + "{% url 'chess:booking_detail' booking.booking.pk %}" + '">{{ booking.booking|safe }}</a>';
+            {% endfor %}
+        }
+        window.onload = buildChess;
+        function dateRedirect(el) { // Изменение даты => перестройка шахматки
+            window.location = '/chess/' + el.value;
+        }
+        $(function(){
+            var $table = $('.table');
+            //Make a clone of our table
+            var $fixedColumn = $table.clone().insertBefore($table).addClass('fixed-column');
+        
+            //Remove everything except for first column
+            $fixedColumn.find('th:not(:first-child),td:not(:first-child)').remove();
+        
+            //Match the height of the rows to that of the original table's
+            $fixedColumn.find('tr').each(function (i, elem) {
+                $(this).height($table.find('tr:eq(' + i + ')').height());
+            });
+        });
+    </script>
+{% endblock %}
