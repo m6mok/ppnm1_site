@@ -14,7 +14,6 @@
 
 {% block content %}
     {% if clients %}
-    <div class="table-responsive">
         <table class="table table-striped">
             <thead class="text-center">
                 <tr>
@@ -37,7 +36,6 @@
                 {% endfor %}
             </tbody>
         </table>
-    </div>
     {% else %}
         <h3 class="lead">Клиентов нет</h3>
     {% endif %}

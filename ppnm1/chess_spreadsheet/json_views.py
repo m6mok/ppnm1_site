@@ -46,22 +46,20 @@ def set_service(request):
 
 @login_required
 def set_booking(request):
-    booking = Booking()
-    booking.status = '1' # Новая бронь
-    booking.client = get_object_or_404(Client, name=request.GET.get('client'))
+    booking = get_object_or_404(Booking, pk=request.GET.get('booking_id'))
+    booking.client = get_object_or_404(Client, pk=request.GET.get('client'))
     booking.customers_count = request.GET.get('customers_count')
     booking.object = get_object_or_404(
         Object,
-        title=request.GET.get('object')
+        pk=request.GET.get('object')
     )
-    services = request.GET.get('services')
-    for service_pk in services:
-        print(service_pk)
-        booking.services.add(get_object_or_404(Service, pk=service_pk))
+    booking.services.set([
+        get_object_or_404(Service, pk=service_id)
+        for service_id in request.GET.getlist('services[]')
+    ])
     booking.date = request.GET.get('date')
     booking.time_from = request.GET.get('time_from')
     booking.time_to = request.GET.get('time_to')
-    booking.pub_date = datetime.now()
     booking.save()
     booking.self = booking
     booking.save()

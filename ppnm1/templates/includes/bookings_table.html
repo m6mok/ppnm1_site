@@ -1,6 +1,6 @@
 <style type="text/css">
     td {
-        min-width: 8rem;
+        
     }
 </style>
 {% if bookings %}
@@ -11,7 +11,7 @@
                     <th></th>
                     <th scope="col">Состояние</th>
                     <th scope="col">Клиент</th>
-                    <th scope="col">Количество людей</th>
+                    <th scope="col">Посетителей</th>
                     <th scope="col">Объект</th>
                     <th scope="col">Услуги</th>
                     <th scope="col">Дата</th>
@@ -39,7 +39,7 @@
                         </td>
                         <td> {{ booking.customers_count }} </td>
                         <td>
-                            <a style="text-decoration:none;" href="{% url 'chess:object_detail' booking.object.pk %}"> {{ booking.object }} </a>
+                            <a style="text-decoration:none;" href="{% url 'chess:object_detail' booking.object.pk %}"> {{ booking.object.title }} </a>
                         </td>
                         {% with services=booking.services.all id=booking.pk %}
                             <td><a style="text-decoration:none;" href="#" data-bs-toggle="modal" data-bs-target="#servicesModal{{ id }}">

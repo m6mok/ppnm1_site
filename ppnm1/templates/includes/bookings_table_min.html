@@ -1,0 +1,37 @@
+{% load user_filters %}
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="text-center">
+            <tr>
+                <th></th>
+                {% if not client %}
+                    <th scope="col">Клиент</th>
+                {% endif %}
+                {% if not object %}
+                    <th scope="col">Объкет</th>
+                {% endif %}
+                <th scope="col">Стоимость</th>
+            </tr>
+        </thead>
+        <tbody class="align-middle text-center">
+            {% for booking in bookings %}
+                <tr>
+                    <td><a class="nav-link" href="{% url 'chess:booking_detail' booking.pk %}">
+                        #
+                    </a></td>
+                    {% if not client %}
+                        <td><a class="nav-link" href="{% url 'chess:client_detail' booking.client.pk %}">
+                            {{ booking.client }}
+                        </a></td>
+                    {% endif %}
+                    {% if not object %}
+                        <td><a class="nav-link" href="{% url 'chess:object_detail' booking.object.pk %}">
+                            {{ booking.object.title }}
+                        </a></td>
+                    {% endif %}
+                    <td>{{ booking.get_sum|rus_money }}</td>
+                <tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

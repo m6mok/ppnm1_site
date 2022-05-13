@@ -14,9 +14,8 @@
             border-right: 1px solid #ddd;
             background-color: #fff;
         }
-        th {
-            height: 4rem;
-            width: 4rem;
+        td {
+            max-width: 8rem;
         }
     </style>
 {% endblock %}
@@ -26,41 +25,53 @@
 {% endblock %}
 
 {% block content %}
-    <div>
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a class="nav-link" href="{% url 'chess:chess' date|previous_day %}"><{{ date|previous_day }}</a></li>
-            <li class="nav-item"><input class="nav-link text-end" onkeydown="return false" type="date" value="{{ date|safe }}" onchange="dateRedirect(this);"/></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'chess:chess' date|next_day %}">{{ date|next_day }}></a></li>
-        </ul>
+    <div class="mb-3">
+        <nav class="col-lg-3 offset-lg-9">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="{% url 'chess:chess' date|previous_day %}">&laquo;</a>
+                </li>
+                <li class="page-item">
+                    <input class="page-link text-end" onkeydown="return false" type="date" value="{{ date|safe }}" onchange="dateRedirect(this);"/>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="{% url 'chess:chess' date|next_day %}">&raquo;</a>
+                </li>
+            </ul>
+        </nav>
     </div>
-    <div class="table-responsive">
-        <table class="table table-striped align-middle">
-            <thead>
-                <tr class="text-left col-3">
-                    <th scope="col">Объект</th>
-                    {% for hour in time %}
-                        <th>{{ hour|to_hour_format }}</th>
-                    {% endfor %}
-                </tr>
-            </thead>
-            <tbody>
-                {% for object in objects %}
-                    <tr>
-                        <td scope="row">
-                            <a class="nav-link" href="{% url 'chess:object_detail' object.pk %}">
-                                {{ object }}
-                            </a>
-                        </td>
+    {% if objects %}
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+                <thead>
+                    <tr class="text-left col-3">
+                        <th scope="col">Объект</th>
                         {% for hour in time %}
-                            <td id="{{ object.pk }}_{{ hour }}"></td>
+                            <th>{{ hour|to_hour_format }}</th>
                         {% endfor %}
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                    {% for object in objects %}
+                        <tr>
+                            <td scope="row">
+                                <a class="nav-link" href="{% url 'chess:object_detail' object.pk %}">
+                                    {{ object.title }}
+                                </a>
+                            </td>
+                            {% for hour in time %}
+                                <td id="{{ object.pk }}_{{ hour }}"></td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <h3 class="lead">На этот день броней нет</h3>
+    {% endif %}
     <script>
-        function buildChess() { // Функция постройки шахматки относительно б/д
+        $(function() { // Функция постройки шахматки относительно б/д
             {% for booking in bookings %}
                 cell = document.getElementById('{{ booking.booking.object.pk }}_{{ booking.time }}');
                 cell.setAttribute('colspan', {{ booking.hours_count }});
@@ -77,12 +88,11 @@
                 {% endif %}
                 + ' href="' + "{% url 'chess:booking_detail' booking.booking.pk %}" + '">{{ booking.booking|safe }}</a>';
             {% endfor %}
-        }
-        window.onload = buildChess;
-        function dateRedirect(el) { // Изменение даты => перестройка шахматки
+        });
+        function dateRedirect(el) { // Переход на страницу даты
             window.location = '/chess/' + el.value;
         }
-        $(function(){
+        $(function() { // Фиксированная левая колонка таблицы
             var $table = $('.table');
             //Make a clone of our table
             var $fixedColumn = $table.clone().insertBefore($table).addClass('fixed-column');

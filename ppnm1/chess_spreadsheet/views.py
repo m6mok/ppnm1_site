@@ -39,7 +39,7 @@ def chess(request, date):
             ),
             'booking': element,
         } for element in bookings],
-        'objects': Object.objects.all()
+        'objects': Object.objects.filter(booking__in=bookings)
     }
     return render(request, 'chess_spreadsheet/chess.html', context)
 

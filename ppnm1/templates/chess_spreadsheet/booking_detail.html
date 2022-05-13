@@ -1,9 +1,110 @@
 {% extends 'chess_base.html' %}
+{% load user_filters %}
 
 {% block title %}
-    Бронирование {{ booking }}
+    Бронь {{ booking.self }}
+{% endblock %}
+
+{% block header_brand %}
+    Бронь
 {% endblock %}
 
 {% block content %}
-    {{ booking }}
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="card-body">
+                <div class="col">
+                    <div class="col-lg-6">
+                        {% csrf_token %}
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>Клиент</th>
+                                <td>
+                                    <select class="form-control" id="client" onchange="set_booking()">
+                                        {% for client in clients %}
+                                            <option value="{{ client.pk }}" {% if client == booking.self.client %}selected{% endif %}>
+                                                {{ client }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Количество посетителей</th>
+                                <td>
+                                    <input class="form-control" type="number" id="customers_count" value="{{ booking.self.customers_count }}" onchange="set_booking()">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Объект</th>
+                                <td>
+                                    <select class="form-control" id="object" onchange="set_booking()">
+                                        {% for object in objects %}
+                                            <option value="{{ object.pk }}" {% if object == booking.self.object %}selected{% endif %}>
+                                                {{ object }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Доп. услуги</th>
+                                <td>
+                                    <select class="form-control" id="services" onchange="set_booking()" multiple>
+                                        {% for service in services %}
+                                            <option value="{{ service.pk }}" {% if service in booking_services %}selected{% endif %}>
+                                                {{ service }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Дата брони</th>
+                                <td>
+                                    <input class="form-control" type="date" id="date" value="{{ booking_date }}" onchange="set_booking()">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Время начала брони</th>
+                                <td>
+                                    <input class="form-control" type="time" id="time_from" value="{{ booking_time_from }}" onchange="set_booking()">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Время конца брони</th>
+                                <td>
+                                    <input class="form-control" type="time" id="time_to" value="{{ booking_time_to }}" onchange="set_booking()">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function set_booking() {
+            $.ajax({
+                url: '{% url 'chess:set_booking' %}',
+                data: {
+                    'client': $('#client').val(),
+                    'customers_count': $('#customers_count').val(),
+                    'object': $('#object').val(),
+                    'services': $('#services').val(),
+                    'date': $('#date').val(),
+                    'time_from': $('#time_from').val(),
+                    'time_to': $('#time_to').val(),
+                    'booking_id': {{ booking.self.pk }}
+                },
+                dataType: 'json'
+            });
+            {% comment %} location.reload(); {% endcomment %}
+        }
+        $("input").focus(function(){
+            if(this.value == this.defaultValue){
+                this.select();
+            }
+        });
+    </script>
 {% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
+from django.forms import ValidationError
 
 from .forms import ClientForm, ObjectForm, ServiceForm, BookingForm
 from .models import Client, Object, Service, Booking
@@ -51,20 +52,28 @@ def service(request):
 
 @login_required
 def booking(request):
-    # context = {
-    #     'clients': Client.objects.all(),
-    #     'objects': Object.objects.all(),
-    #     'services': Service.objects.all()
-    # }
-    # return render(request, 'chess_spreadsheet/create_booking.html', context)
     form = BookingForm(request.POST or None)
+    context = {
+        'form': form
+    }
     if form.is_valid():
         booking = form.save(commit=False)
+        
+        same_date_object_bookings = Booking.objects.filter(
+            date=booking.date,
+            object=booking.object
+        )
+        if (same_date_object_bookings):
+            for other in same_date_object_bookings:
+                if (other.time_from <= booking.time_from <= other.time_to
+                    or other.time_from <= booking.time_to <= other.time_to):
+                    form.add_error(
+                        None,
+                        'Кто-то уже забронировал этот объект на это время.'
+                        )
+                    return render(request, 'chess_spreadsheet/create_booking.html', context)
         booking.save()
         booking.self = booking
         booking.save()
         return redirect('chess:all_bookings')
-    context = {
-        'form': form
-    }
     return render(request, 'chess_spreadsheet/create_booking.html', context)

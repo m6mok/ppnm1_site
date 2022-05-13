@@ -1,4 +1,5 @@
 {% extends 'chess_base.html' %}
+{% load user_filters %}
 
 {% block title %}
     Объект {{ object.self }}
@@ -13,7 +14,7 @@
         <div class="row g-0">
             <div class="card-body">
                 <div class="col">
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         {% csrf_token %}
                         <table class="table table-borderless">
                             <tr>
@@ -24,8 +25,9 @@
                             </tr>
                             <tr>
                                 <th>Цена</th>
-                                <td>
+                                <td class="input-group">
                                     <input class="form-control" type="number" id="price" value="{{ object.self.price }}" onchange="set_object()">
+                                    <div class="input-group-text">{{ ''|rus_money }}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -38,7 +40,8 @@
                     </div>
                 </div>
                 <div class="col">
-                    {% include 'includes/bookings_table.html' %}
+                    <h3 class="lead">Все связанные брони</h3>
+                    {% include 'includes/bookings_table_min.html' %}
                 </div>
             </div>
         </div>

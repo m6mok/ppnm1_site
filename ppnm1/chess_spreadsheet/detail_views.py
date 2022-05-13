@@ -30,7 +30,15 @@ def client(request, pk):
 def booking(request, pk):
     booking = get_object_or_404(Booking, pk=pk)
     context = {
-        'booking': booking
+        'booking': booking,
+        'booking_date': booking.self.date.strftime('%Y-%m-%d'),
+        'booking_time_from': booking.self.time_from.strftime('%H:%M'),
+        'booking_time_to': booking.self.time_to.strftime('%H:%M'),
+        'booking_services':
+            [service for service in booking.self.services.all()],
+        'clients': Client.objects.all(),
+        'objects': Object.objects.all(),
+        'services': Service.objects.all()
     }
     return render(request, 'chess_spreadsheet/booking_detail.html', context)
 
