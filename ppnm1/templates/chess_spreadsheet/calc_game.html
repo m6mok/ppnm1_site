@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        body {
+            background-color: aqua;
+        }
+    </style>
+
+    <title>Игра Калькулятор</title>
+</head>
+<body>
+    <div class="p-5">
+        <div class="card col-lg-3">
+            <div class="card-header">
+                <p>
+                    Игра Калькулятор. Счёт <span style="color: green;" id="winCount">0</span>:<span style="color: red;" id="loseCount">0</span>
+                </p>
+                <p>
+                    Прошло времени: <span id="timePassed">00:00</span>
+                </p>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Сколько будет</h5>
+                <p id='question' class="card-text">1 + 2 = <span id="result">?</span></p>
+                <div class="row">
+                    <button id="answer1">1</button>
+                    <button id="answer2">2</button>
+                    <button id="answer3">3</button>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button id="correct" class="btn btn-success" onclick="update();">Правильно</button>
+                <button id="incorrect" class="btn btn-danger" onclick="update();">Неверно</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let wins = 0;
+        let loses = 0;
+        let answer = '';
+        let rightAnswerButton = null;
+        let buttons = [];
+        function randInt(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+        function generate() {
+            let limb = 100;
+            let number1 = Math.floor(randInt(0, limb + 1));
+            if (number1 == 0) {
+                generate();
+                return;
+            } 
+            let string = number1 + ' '
+            if (randInt(0, 2) == 0) {
+                let number2 = Math.floor(randInt(0, limb + 1 - number1));
+                string += '+ ' + number2;
+            }
+            else {
+                let number2 = Math.floor(randInt(0, number1 + 1));
+                string += '- ' + number2;
+            }
+            answer = eval(string);
+            for (let i = 0; i < buttons.length; i++) {
+                let a = randInt(0, limb + 1);
+                if (a == answer) {
+                    generate();
+                    return;
+                } 
+                buttons[i].innerHTML = a;
+            }
+            rightAnswerButton = document.getElementById(('answer' + randInt(1, 4)));
+            rightAnswerButton.innerHTML = answer;
+            document.getElementById('question').innerHTML = string + ' = <span id="result">?</span>';
+        }
+        function set_rab_colored() {
+            rightAnswerButton.classList.toggle('btn-primary');
+            rightAnswerButton.classList.toggle('btn-success');
+        }
+        function check(id) {
+            if (buttons[id].innerHTML == answer) {
+                document.getElementById('correct').style.display = 'block';
+                document.getElementById('incorrect').style.display = 'none';
+                document.getElementById('winCount').innerHTML = parseInt(document.getElementById('winCount').innerHTML) + 1;
+
+                set_rab_colored();
+            }
+            else {
+                document.getElementById('incorrect').style.display = 'block';
+                document.getElementById('correct').style.display = 'none';
+                document.getElementById('loseCount').innerHTML = parseInt(document.getElementById('loseCount').innerHTML) + 1;
+                
+                buttons[id].classList.toggle('btn-primary');
+                buttons[id].classList.toggle('btn-danger');
+                set_rab_colored();
+            }
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].disabled = true;
+            }
+            document.getElementById('result').innerHTML = buttons[id].innerHTML;
+        }
+        function update() {
+            document.getElementById('correct').style.display = 'none';
+            document.getElementById('incorrect').style.display = 'none';
+            buttons = []
+            buttons.push(document.getElementById('answer1'));
+            buttons.push(document.getElementById('answer2'));
+            buttons.push(document.getElementById('answer3'));
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].disabled = false;
+                buttons[i].onclick = function(){ check(i) };
+                buttons[i].className = 'btn btn-primary col mx-1';
+            }
+            generate()
+        }
+        window.onload = update();
+        var start = Date.now();
+        let timePassed = document.getElementById('timePassed');
+        setInterval(function() {
+            var delta = Date.now() - start;
+            timePassed.innerHTML = new Date(delta).toISOString().substring(14, 19);
+        }, 1000);
+    </script>
+</body>
+</html>

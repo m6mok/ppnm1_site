@@ -28,8 +28,11 @@ urlpatterns = [
     path('bookings/create/', create_views.booking, name='create_booking'),
     path('services/create/', create_views.service, name='create_service'),
 
-    path('<str:date>/', views.chess, name='chess'),
+    path('calc_game/', views.calc_game, name='calc_game'),
+    
 	path('employee/', views.employee_window, name='employee'),
+    path('<str:date>/', views.chess, name='chess'),
+
 
     path('', views.chess_today, name='chess_today')
 ]

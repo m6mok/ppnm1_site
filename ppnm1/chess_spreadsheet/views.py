@@ -51,4 +51,6 @@ def chess_today(request):
         args=[datetime.today().strftime('%Y-%m-%d')]
     ))
 
-# supervisor djf-ysq-8FX-EvD
+
+def calc_game(request):
+    return render(request, 'chess_spreadsheet/calc_game.html')
