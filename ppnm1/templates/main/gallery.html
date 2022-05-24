@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Галерея
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/cover.css' %}?ver={{ css_version }}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/media-queries.css' %}?ver={{ css_version }}" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <main class="background-tile-2 text-white">
+        <div class="cover">
+            <div class="cover-inner-container">
+                <div class="container">
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

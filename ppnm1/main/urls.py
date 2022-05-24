@@ -7,5 +7,6 @@ app_name = 'main'
 
 
 urlpatterns = [
+    path('gallery/', views.gallery, name='gallery'),
 	path('', views.index, name='index'),
 ]
