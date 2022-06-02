@@ -1,5 +1,5 @@
 {% load static %}
-{% with css_version=103 %}
+{% with ver=106 %}
     <!DOCTYPE html>
     <html lang="ru-RU">
         <head>
@@ -14,8 +14,8 @@
             <meta http-equiv="imagetoolbar" content="no"/>
             <meta http-equiv="msthemecompatible" content="no"/>
             <meta name="theme-color" content="#013220">
-            <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}?ver={{ css_version }}">
-            <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css' %}?ver={{ css_version }}">
+            <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}?ver={{ ver }}">
+            <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css' %}?ver={{ ver }}">
             
             <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -6,19 +6,39 @@
 {% endblock %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'css/cover.css' %}?ver={{ css_version }}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/media-queries.css' %}?ver={{ css_version }}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/cover.css' %}?ver={{ ver }}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/media-queries.css' %}?ver={{ ver }}" type="text/css">
 {% endblock %}
 
 {% block content %}
     <main class="background-tile-2 text-white">
         <div class="cover">
-            <img src="{% static 'img/img5.jpg' %}" class="cover-image-background filter-dark">
+            <img src="{% static 'img/img5.jpg' %}" class="cover-image-background filter-dark" alt="Img5 background image"/>
             <div class="cover-inner-container">
                 <div class="justify-content-center text-center">
-                    <h3 class="gold">Добро пожаловать<br>к нам в пикник-парк!</h3>
-                    <p>В нашем красивом лесном парке есть всё для Вашего отдыха: видовые мангальные полянки, уютные беседки и мостки для рыбалки.</p>
-                    <a class="btn main-color" href="#booking">
+                    <div class="row justify-content-center mt-4 mb-3">
+                        <div class="col-sm-3 col-xs-8">
+                            <img width="100%" height="100%" src="{% static 'img/logo-1.png' %}" alt="Logo image"/>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div style="margin: auto;" class="col-md">
+                                <p class="h3">Отдых на природе в Кашире</p>
+                                <p class="lead">Беседки и поляны с мангалами от 1500 руб/день. </p>
+                            </div>
+                            <div style="margin: auto;" class="col-md">
+                                <p class="h3">Рыбалка в Кашире </p>
+                                <p>Карп от 0,5 до 2 кг,<br>Сом от 1,5 до 9 кг,<br>Осётр от 2 до 5 кг,<br>Щука от 3 до 5 кг.</p>
+                                <p class="lead">Платная рыбалка от 1500 руб/день. </p>
+                            </div>
+                            <div style="margin: auto;" class="col-md">
+                                <p class="h3">Кемпинг в берёзовом лесу</p>
+                                <p class="lead">Палатки от 750 руб/сутки.<br>Можно со своей палаткой!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn main-color mb-4" href="#booking">
                         <span class="gold">Забронировать</span>
                     </a>
                 </div>
@@ -27,8 +47,8 @@
         <div class="cover">
             <div class="cover-inner-container">
                 <div class="justify-content-center text-center">
-                    <p class="mb-3 col">
-                        <img class="row map" src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Ad5798a4288d27379d225efe840dc2a20b684928a580b75360f714a57e53a50a2&amp;width=500&amp;height=400&amp;lang=ru_RU"/>
+                    <p class="mb-3 mt-4 col">
+                        <img class="row map" src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Ad5798a4288d27379d225efe840dc2a20b684928a580b75360f714a57e53a50a2&amp;width=500&amp;height=400&amp;lang=ru_RU" alt="Yandex.Map image"/>
                         <div class="row">
                             <a href="https://yandex.ru/maps/-/CCUFQCV6lB" target="_blank">Посмотреть в Яндекс.Картах</a>
                         </div>
@@ -39,37 +59,11 @@
             </div>
         </div>
         <div class="cover">
-            <img style="object-position: 50% 35%;" src="{% static 'img/img7.jpg' %}" loading="lazy" class="cover-image-background filter-dark">
+            <img style="object-position: 30% 90%;" src="{% static 'img/img8.jpg' %}" loading="lazy" class="cover-image-background filter-dark"  alt="Img8 background image"/>
             <div class="cover-inner-container">
                 <div class="justify-content-center text-center">
-                    <h3 class="gold">Проведите день увлекательно и продуктивно</h3>
-                    <p>Возьмите на прокат снасти и половите рыбу с благоустроенного рыбацкого мостка. Карп? Щука? Осётр? Кто окажется в Вашем садке сегодня? Сварите уху или закоптите ваш улов. В «Нашем месте» есть всё, что для этого нужно!</p>
-                    <p>Прогуляйтесь по лесу и по берегу пруда, подремлите в гамаке, попейте чая на природе. Пригласите близкого человека погулять по «Нашему месту», полюбуйтесь природой, подышите свежим воздухом. А ещё у нас нет клещей и комаров, пустячок, а всё же приятно!</p>
-                </div>
-            </div>
-        </div>
-        <div class="cover">
-            <div class="cover-inner-container">
-                <div class="justify-content-center text-center">
-                    <p>Для дружной компании арендуйте два рыбацких мостка и устройте соревнование «кто быстрее поймает» или «у кого крупнее карп». Поставьте палатку и пожарьте хлеб или зефирки на костре. Пикник-парк «Наше место» создан специально для этих замечательных занятий!</p>
-                    <p>Расположитесь в беседке или на мангальной полянке. На удобном мангале приготовьте отличные блюда. Проведите вечер у костра. В нашем пикник-парке есть настольные игры, а играть в мафию на природе приятнее чем в душной квартире!</p>
-                </div>
-            </div>
-        </div>
-        <div class="cover">
-            <img style="object-position: 50% 90%;" src="{% static 'img/img4.jpg' %}" loading="lazy" class="cover-image-background filter-dark">
-            <div class="cover-inner-container">
-                <div class="justify-content-center text-center">
-                    <p>Отпразднуйте свадьбу, день Рождения, корпоратив, тимбилдинг. Устройте встречу выпускников или отметьте последнюю пятницу на неделе.</p>
-                    <p>Закажите аниматора для детского праздника, поиграйте в волейбол, устройте пейнтбольный бой, пройдите лесной квест. Любые виды активных развлечений на свежем воздухе доступны для Вас по предварительной договорённости.</p>
-                    <p>В нашем пикник-парке есть мангальные полянки и разные беседки, рассчитанные на компании от 2-х до 40 человек. Мангалы, казаны, садж, шампуры, решетки, вертел — всё для Вашего кулинарного триумфа!</p>
-                </div>
-            </div>
-        </div>
-        <div class="cover">
-            <div class="cover-inner-container">
-                <div class="justify-content-center text-center">
-                    
+                    <p>В пикник-парке «НАШЕ МЕСТО» можно отпраздновать свадьбу, день рождения, корпоратив, провести встречу выпускников или отметить последнюю пятницу на неделе!</p>
+                    <p>Рыбалка, кемпинг, палатки, беседки, мангалы, казаны, садж, шампуры, решётки, вертел - всё для Вашего активного отдыха и кулинарного триумфа!</p>
                 </div>
             </div>
         </div>
@@ -79,26 +73,32 @@
                     <p class="mb-3" style="margin: auto;">Бронь и оплату можно удобно и быстро произвести здесь:</p>
                     <div class="col">
                         <div class="row-6 mb-3">
-                            <a class="btn main-color" onclick="clW_e9268051e265c364beb096d90cebd311.openform();">
+                            <button class="btn main-color" onclick="clW_e9268051e265c364beb096d90cebd311.openform();">
                                 <span class="gold">Забронировать беседку</span>
-                            </a>
+                            </button>
                         </div>
                         <div class="row-6 mb-3">
-                            <a class="btn main-color" onclick="clW_051396a0462c9075055534dda5d1a675.openform();">
+                            <button class="btn main-color" onclick="clW_051396a0462c9075055534dda5d1a675.openform();">
                                 <span class="gold">Забронировать рыбацкий мостик</span>
-                            </a>
+                            </button>
+                        </div>
+                        <div class="row-6 mb-3">
+                            <button class="btn main-color" onclick="clW_b10b4d1164b51408b3501d96909f4a1c.openform();">
+                                <span class="gold">Забронировать мангальную полянку</span>
+                            </button>
                         </div>
                         <div class="row-6">
-                            <a class="btn main-color" onclick="clW_b10b4d1164b51408b3501d96909f4a1c.openform();">
-                                <span class="gold">Забронировать мангальную полянку</span>
-                            </a>
+                            <button class="btn main-color" onclick="clW_a34eecef913364a984d478483e9fb214.openform();">
+                                <span class="gold">Забронировать палатку</span>
+                            </button>
                         </div>
                     </div>
+                    <script src="https://33088.cloff.ru/widget/hbh.4284.e9268051e265c364beb096d90cebd311.js"></script>
+                    <script src="https://33088.cloff.ru/widget/hbh.4285.051396a0462c9075055534dda5d1a675.js"></script>
+                    <script src="https://33088.cloff.ru/widget/hbh.4282.b10b4d1164b51408b3501d96909f4a1c.js"></script> 
+                    <script src="https://33088.cloff.ru/widget/hbh.4341.a34eecef913364a984d478483e9fb214.js"></script>
                 </div>
             </div>
-            <script type="text/javascript" src="https://33088.cloff.ru/widget/hbh.4284.e9268051e265c364beb096d90cebd311.js"></script>
-            <script type="text/javascript" src="https://33088.cloff.ru/widget/hbh.4285.051396a0462c9075055534dda5d1a675.js"></script>
-            <script type="text/javascript" src="https://33088.cloff.ru/widget/hbh.4282.b10b4d1164b51408b3501d96909f4a1c.js"></script> 
         </div>
     </main>
     {% include 'includes/footer.html' %}
