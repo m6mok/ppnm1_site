@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Бронирование кемпинга
+{% endblock %}
+
+{% block head %}
+    <script type="text/javascript" src="https://33088.cloff.ru/widget/hbh.4341.a34eecef913364a984d478483e9fb214.js"></script>    
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="background-tile-2 text-white">
+            <div class="pt-5 px-5">
+                <h3>Бронирование кемипнга</h3>
+                <div id="CLOFF_HOTEL_WIDGET" style="width:280px;height:320px;"></div>
+                <script>jcClWidgetBookinga34eecef913364a984d478483e9fb214.openform("CLOFF_HOTEL_WIDGET");</script>
+            </div>
+        </div>
+    </main>
+{% endblock %}

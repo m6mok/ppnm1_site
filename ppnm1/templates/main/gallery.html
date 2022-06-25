@@ -14,10 +14,72 @@
     <main class="background-tile-2 text-white">
         <div class="cover">
             <div class="cover-inner-container">
-                <div class="container">
+                <div class="container-lg">
+                    <div class="text-center">
+                        <div class="row justify-content-center mb-3">
+                            <h1 class="my-5">Пикник-парк<br><span class="gold">НАШЕ МЕСТО</span></h1>
+                            <h2 class="py-3 background-tile-1"><span class="gold">Галерея</span></h2>
+                        </div>
+                    </div>
+                    <section class="gallery my-5 text-center">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 align-items-center">
+                            {% for image in images %}
+                                <div class="col">
+                                    <a data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-pk="{{ forloop.counter }}">
+                                        <img src="{{ image.image.url }}" class="rounded img-fluid my-3" alt="Image({{ image.title }})">
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </section>
+                    
                     
                 </div>
             </div>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen dark">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="text-center mb-3">
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div id="carouselIndicators" class="carousel slide">
+                            <!-- <div class="carousel-indicators">
+                                {% for image in images %}
+                                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="Slide {{ forloop.counter }}"></button>
+                                {% endfor %}
+                            </div> -->
+                            <div class="carousel-inner">
+                                {% for image in images %}
+                                    <div id="gallery-container-{{ forloop.counter }}" class="carousel-item text-center {% if forloop.first %}active{% endif %}">
+                                        <img src="{{ image.image.url }}" alt="{{ image.title }}">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script>
+            var galleryModal = document.getElementById('galleryModal')
+            galleryModal.addEventListener('show.bs.modal', function (event) {
+                var pk = event.relatedTarget.getAttribute('data-bs-pk')
+                var gallery_container = document.getElementById('gallery-container-' + pk)
+                galleryModal.querySelectorAll('.carousel-item').forEach(el => el.classList.remove('active'))
+                gallery_container.classList.add('active')
+            })
+        </script>
     </main>
 {% endblock %}

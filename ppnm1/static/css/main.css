@@ -19,18 +19,21 @@ footer {
     max-width: 33%;
 }
 
+h6, h5, h4, h3, h2, h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 p {
     hyphens: auto;
     -moz-hyphens: auto;
     -webkit-hyphens: auto;
     -ms-hyphenate-limit-chars: 6 3 2;
+    font-family: Georgia, Times, "Times New Roman", serif;
 }
 
 .map {
     border: 0;
     margin: auto;
-    width: 50%;
-    min-width: 260px;
     border-radius: .25rem;
 }
 
@@ -41,8 +44,19 @@ p {
     -webkit-background-clip: text;
 }
 
-.main-color {
+.main-button {
     background-color: #013220;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+}
+
+.dark-background {
+    background-color: #05050570;
+    border-radius: 10px;
+}
+
+.main-button h6, h5, h4, h3, h2, h1 {
+    margin-bottom: 0px;
 }
 
 .background-tile-1 {
@@ -53,4 +67,31 @@ p {
 .background-tile-2 {
     background-image: url('../img/tile2.jpg');
     background-repeat: repeat;
+}
+
+.gallery img {
+    width: 500px;
+    height: 150px;
+    object-fit: cover;
+    object-position: 50% 90%;
+    transition: .5s;
+}
+
+.gallery img:hover {
+    opacity: 1;
+    filter: brightness(80%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.modal-content {
+    background-color: #00000074;
+}
+
+.carousel {
+    max-height: 90%;
+}
+
+.modal-dialog img {
+    max-height: calc(100vh - 6rem);
+    max-width: 90vw;
 }

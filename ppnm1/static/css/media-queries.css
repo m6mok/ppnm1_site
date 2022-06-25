@@ -1,35 +1,75 @@
 h1, h2, h3, h4, h5, h6, p, a {
-    max-width: 630px;
+    max-width: 900px;
+}
+
+h2 {
+    font-size: 36px;
 }
 
 h3 {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 p {
-    font-size: 20px;
+    font-size: 24px;
 }
 
 @media only screen and (max-width: 768px) {
 
-    h3 {
+    h2 {
         font-size: 40px;
+    }
+
+    h3 {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 24px;
+    }
+    
+    .map {
+        width: 65vw;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    h2 {
+        font-size: 36px;
+    }
+
+    h3 {
+        font-size: 20px;
     }
 
     p {
         font-size: 20px;
+    }
+    
+    .map {
+        width: 90vw;
     }
 
 }
 
 @media only screen and (max-width: 420px) {
 
+    h2 {
+        font-size: 32px;
+    }
+
     h3 {
-        font-size: 28px;
+        font-size: 16px;
     }
 
     p {
-        font-size: 16px;
+        font-size: 20px;
+    }
+    
+    .map {
+        width: 90vw;
     }
 
 }

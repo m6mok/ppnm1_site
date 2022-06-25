@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Бронирование беседки
+{% endblock %}
+
+{% block head %}
+    <script type="text/javascript" src="https://33088.cloff.ru/widget/hbh.4284.e9268051e265c364beb096d90cebd311.js"></script>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="background-tile-2 text-white">
+            <div class="pt-5 px-5">
+                <h3>Бронирование беседки</h3>
+                <div id="CLOFF_HOTEL_WIDGET" style="width:280px;height:320px;"></div>
+                <script>jcClWidgetBookinge9268051e265c364beb096d90cebd311.openform("CLOFF_HOTEL_WIDGET");</script>
+            </div>
+        </div>
+    </main>
+{% endblock %}

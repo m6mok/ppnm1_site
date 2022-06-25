@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Бронирование рыбацкого мостика
+{% endblock %}
+
+{% block head %}
+    <script type="text/javascript" src="https://33088.cloff.ru/widget/hbh.4285.051396a0462c9075055534dda5d1a675.js"></script>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="background-tile-2 text-white">
+            <div class="pt-5 px-5">
+                <h3>Бронирование рыбацкого мостика</h3>
+                <div id="CLOFF_HOTEL_WIDGET" style="width:280px;height:320px;"></div>
+                <script>jcClWidgetBooking051396a0462c9075055534dda5d1a675.openform("CLOFF_HOTEL_WIDGET");</script>
+            </div>
+        </div>
+    </main>
+{% endblock %}

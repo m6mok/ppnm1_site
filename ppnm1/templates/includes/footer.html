@@ -1,15 +1,27 @@
 {% load static %}
 <footer class="background-tile-1 text-white">
     <div>
-        <div class="row">
-            <div class="col mb-3">
-                <p>Уточнить детали и договориться о посещении Пикник-парка «Наше место» Вы можете по этим контактам:</p>
-                <a href="tel:+79295550066"><h3>+79295550066</h3></a>
-                <a href="mailto:picnik-park@yandex.ru"><h3>picnik-park@yandex.ru</h3></a>
-                <a class="mb-3" href="https://vk.com/ppnm1" id="vk_groups_mobile"><h3>Группа VK</h3></a>
-                <a class="btn main-color" href="{% static 'files/rules.pdf' %}">
-                    <span class="h3 gold">Правила парка и прайс-лист</span>
-                </a>
+        <div class="row mb-3">
+            <div class="mb-4">
+                <h2 class="mb-3">Уточнить детали и договориться о посещении Пикник-парка «Наше место»<br>Вы можете по этим контактам:</h2>
+                <h2 class="mb-1"><a href="tel:+79295550066">+79295550066</a></h2>
+                <h2 class="mb-1"><a href="mailto:picnik-park@yandex.ru">picnik-park@yandex.ru</a></h2>
+                <h2><a href="https://vk.com/ppnm1" id="vk_groups_mobile">Группа VK</a></h2>
+            </div>
+            <div class="col">
+                <div class="row-3 mb-3"><a class="btn main-button" href="{% static 'files/rules.pdf' %}">
+                    <h3 class="gold">Правила парка и прайс-лист</h3>
+                </a></div>
+                <div class="row-3 mb-3">
+                    <a class="btn main-button" href="{% static 'files/camping_rules.pdf' %}">
+                        <h3 class="gold">Правила кемпинга</h3>
+                    </a>
+                </div>
+                <div class="row-3">
+                    <a class="btn main-button" href="{% static 'files/fishing_rules.pdf' %}">
+                        <h3 class="gold">Правила суточной рыбалки</h3>
+                    </a>
+                </div>
             </div>
         </div>
         <p>© 2022 ИП Шишкин П. А.</p>
